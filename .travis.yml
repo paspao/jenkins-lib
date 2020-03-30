@@ -1,0 +1,7 @@
+language: groovy
+
+services:
+  - docker
+
+before_install:
+- DOCKER_BUILDKIT=1 docker build -t jenkins-lib . 
