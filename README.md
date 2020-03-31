@@ -1,4 +1,4 @@
-JENKINS-LIB
+JENKINS-LIB [![Build Status](https://travis-ci.org/paspao/jenkins-lib.svg?branch=master)](https://travis-ci.org/paspao/jenkins-lib)
 ===========
 
 Plugins needed
