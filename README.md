@@ -54,7 +54,7 @@ Test Environment
 To test the library on Jenkins instance you can use Docker (again), the following the first time:
 
 ```bash
-docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+docker run -p 8080:8080 -p 50000:50000 --name container_name jenkins/jenkins:lts
 ```
 
 then you can restart the same container with (so you will haven't any loose of configurations):
@@ -97,7 +97,6 @@ jenkinslib(this, "test")
 pipeline {
     agent any 
     tools {
-        maven 'maven3.6.3'
         jdk 'jdk11'
     }
     
@@ -112,7 +111,9 @@ pipeline {
         stage('Build') { 
             steps {
                 ansiColor('xterm') {
-                    sh 'mvn package'
+                    withMaven(maven:'maven3.6.3'){
+                        sh 'mvn package'
+                    }
                 }
             }
         }
